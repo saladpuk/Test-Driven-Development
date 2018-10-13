@@ -141,6 +141,64 @@ public void TestMethod2(int input)
 @[1-2](Fact Attribute: ใช้ทดสอบสิ่งที่เป็นจริงเสมอ และ method นั้นจะรับ parameters ไม่ได้)
 @[7-10](Theory Attribute: ใช้ทดสอบ test cases หลายๆแบบ และ method สามารถมี parameters ได้)
 
++++
+
+@title[Demo]
+
+@snap[west headline]
+  @size[1.5em](@color[orange](@fa[laptop]) Demo)  
+  ATM's scenarios
+@snapend
+
+---
+
+@title[TDD Mantra]
+
+@snap[west split-screen-heading span-60]
+@size[0.75em](The Mantra of TDD)  
+![img](assets/img/tdd_mantra.png)
+@snapend
+
+@snap[east text-white span-40 fragment]
+@ol[split-screen-list](false)
+@size[0.5em](@fa[quote-left] TDD is a software development process which consists of writing unit test that will **initially fail** and then implementing minimum amount of code to **pass** that test to @color[yellow](**avoiding over engineer**) @fa[quote-right])
+@snapend
+
+---
+
+@title[TDD vs Traditional Testing]
+
+### TDD vs Traditional Testing
+
+||TDD|Traditional|
+|--|--|--|
+|Strategy|Test First|Code First|
+|Code covered with tests|> 90%|@fa[question]|
+|When to write tests|Now|@fa[question]|
+|Short term|@fa[angle-double-down]|@fa[rocket]|
+|Long term|@fa[rocket]|@fa[angle-double-down]|
+
+---
+
+@title[Refactoring]
+
+@snap[west split-screen-heading span-60]
+Refactoring  
+![img](assets/img/tdd_mantra.png)
+@snapend
+
+@snap[east text-white span-40]
+@ol[split-screen-list]
+* Is the existing design the best design possible?
+* If not, refactor the code until it is easier to add new feature
+@snapend
+
++++
+
+@title[Clean Code]
+
+![img](assets/img/clean_code.jpg)
+
 ---
 
 @title[Snap]
@@ -180,99 +238,6 @@ south-west
 @snap[south-east template-note]
 south-east
 @snapend
-
----?image=assets/img/logo/logo.png&opacity=50
-
-@title[Background & Icons]
-
-# Title
-
-https://fontawesome.com/icons?from=io
-
-@fa[arrow-down text-black]
-@fa[calendar]
-@title[Contact Me]
-[@color[orange](@fa[github-square pad-right-icon]@css[git-handle](GitHub))](https://github.com/saladpuk)
-[@color[orange](@fa[envelope-o pad-right-icon]@css[contact-email](au.perspectives@gmail.com))](mailto: au.perspectives@gmail.com)
-
-+++
-
-@title[List]
-
-## Step-by-Step
-
-@snap[midpoint list-content-concise span-100]
-@ol
-- Lorem ipsum dolor sit amet
-- Consectetur adipiscing elit
-- Sed do eiusmod tempor
-@olend
-<br><br>
-@snapend
-
----
-@title[Code]
-
-```
-// Include http module.
-var http = require("http");
-
-// Create the server. Function passed as parameter
-// is called on every request made.
-http.createServer(function (request, response) {
-  // Attach listener on end event.  This event is
-  // called when client sent, awaiting response.
-  request.on("end", function () {
-    // Write headers to the response.
-    // HTTP 200 status, Content-Type text/plain.
-    response.writeHead(200, {
-      'Content-Type': 'text/plain'
-    });
-    // Send data and end response.
-    response.end('Hello HTTP!');
-  });
-
-// Listen on the 8080 port.
-}).listen(8080);
-```
-
-@[1,2](You can present code inlined within your slide markdown too.)
-@[9-17](Your code is displayed using code-syntax highlighting just like your IDE.)
-@[19-20](Again, all of this without ever leaving your slideshow.)
-
-+++
-@title[Tree]
-
-```text
-.
-├── PITCHME.md
-├── PITCHME.yaml
-└── template
-    ├── css
-    │   └── PITCHME.css
-    ├── img
-    │   ├── batman.png
-    │   ├── dataflow.png
-    │   ├── developer.jpg
-    │   └── ....
-    └── md
-        ├── about/PITCHME.md
-        ├── announcement/PITCHME.md
-        ├── code-presenting/PITCHME.md
-        ├── header-footer/PITCHME.md
-        ├── image/PITCHME.md
-        ├── list-content/PITCHME.md
-        ├── quotation/PITCHME.md
-        ├── sidebar/PITCHME.md
-        ├── sidebox/PITCHME.md
-        ├── split-screen/PITCHME.md
-        └── wrap-up/PITCHME.md
-```
-
-@[1-3, 6](Code presenting can also be used to step through any text-based content.)
-@[4,5,7,12](Here for example we can navigate through the directory structure for this template.)
-@[12-23](We can see that this template uses GitPitch's cool modular markdown support @fa[smile-o fa-spin])
-
 
 ---
 @title[Quote]
