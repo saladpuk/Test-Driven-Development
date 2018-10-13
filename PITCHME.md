@@ -1,11 +1,12 @@
-@title[Begin]
+@title[Cover]
+
+@snap[north-west byline]
+  Software Development Series
+@snapend
 
 @snap[west headline text-white]
-	@color[orange](GitPitch)  
-	*The Template*  
-	@size[1em](ภาษาไทย)
-	@size[0.5em](ภาษาไทย)
-	@size[0.25em](ภาษาไทย)
+	@size[0.75em](@color[orange](T)est @color[orange](D)riven @color[orange](D)evelopment)  
+  @size[0.75em](in .NET Core) C#  
 @snapend
 
 ---
