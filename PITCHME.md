@@ -11,6 +11,34 @@
 
 ---
 
+@title[Earth without TDD]
+
+@snap[west headline text-white]
+  @size[0.75em](What Would Earth Be Like @color[brown](Without TDD) ?)
+@snapend
+
++++
+
+@title[Mysteries]
+
+![img](assets/img/other_peoples_code.png)
+
++++
+
+@title[Code Quality]
+
+![img](assets/img/code_quality.png)
+
+---
+
+@title[TDD Definition]
+
+@snap[north span-100]
+@quote[Test-driven development is a software development process that relies on the repetition of a very short development cycle: requirements are turned into very specific test cases, then the software is improved to pass the new tests, only. This is opposed to software development that allows software to be added that is not proven to meet requirements.]([Wikipedia](https://en.wikipedia.org/wiki/Test-driven_development))
+@snapend
+
+---
+
 @title[Snap]
 
 @snap[north]
