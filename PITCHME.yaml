@@ -56,3 +56,4 @@ layout : center
 transition : none
 
 mousewheel : true
+#code-line-numbers : true

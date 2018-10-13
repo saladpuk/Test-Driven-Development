@@ -5,7 +5,7 @@
 @snapend
 
 @snap[west headline text-white]
-	@size[0.75em](@color[orange](T)est @color[orange](D)riven @color[orange](D)evelopment)  
+  @size[0.75em](@color[orange](T)est @color[orange](D)riven @color[orange](D)evelopment)  
   @size[0.75em](in .NET Core) C#  
 @snapend
 
@@ -29,13 +29,67 @@
 
 ![img](assets/img/code_quality.png)
 
++++
+
+@title[Misunderstanding]
+
+![img](assets/img/requirement.png)
+
 ---
 
 @title[TDD Definition]
 
-@snap[north span-100]
-@quote[Test-driven development is a software development process that relies on the repetition of a very short development cycle: requirements are turned into very specific test cases, then the software is improved to pass the new tests, only. This is opposed to software development that allows software to be added that is not proven to meet requirements.]([Wikipedia](https://en.wikipedia.org/wiki/Test-driven_development))
+## [Wikipedia](https://en.wikipedia.org/wiki/Test-driven_development)
+
+@size[0.75em](@fa[quote-left] Test-driven development is a software development process that relies on the repetition of a very short development cycle: @color[orange](requirements are turned into very specific test cases, then the software is improved to pass the new tests, only). This is opposed to software development that allows software to be added that is not proven to meet requirements @fa[quote-right])
+
+---
+
+@title[Requirements to Test cases]
+
+@snap[west headline text-white]
+  @size[0.75em](Turn Requirements)  
+  @color[orange](@fa[angle-double-right] Test cases)
 @snapend
+
++++
+
+@title[Grouping]
+
+@snap[north headline]
+Grouping
+@snapend
+
+@snap[midpoint list-content-concise span-100]
+@ol
+- Normal cases
+- Alternative cases
+- Exception cases
+@olend
+@snapend
+
++++
+
+@title[Example]
+
+## Example
+
+```
+Normal cases
+1.ผู้ใช้กดเงินออกจากตู้ข้อมูลถูกต้อง ระบบทำการหักเงินแล้วนำเงินออกมา
+2.ผู้ใช้กดเงินออกจากตู้แต่เงินในบัญชีไม่พอ ระบบทำการแจ้งเตือน
+3.ผู้ใช้กดเงินออกจากตู้ข้อมูลถูกต้อง แต่ตู้มีเงินไม่พอจ่าย ระบบทำการแจ้งเตือน
+
+Alternative cases
+4.ผู้ใช้บัญชีพิเศษกดเงินมากกว่าที่มีในบัญชี ระบบบันทึกเครดิตแล้วนำเงินออกมา
+5.ผู้ใช้บัญชีพิเศษกดเงินมากกว่าที่มีในบัญชี แต่เครดิตเต็มแล้ว ระบบทำการแจ้งเตือน
+
+Exception cases
+6.ผู้ใช้ถอนเงินสำเร็จแต่ระบบไม่สามารถตัดเงินออกจากบัญชีได้ ระบบทำการแจ้งเตือน
+```
+@[1-4](Normal cases: กรณีที่เจอได้บ่อยๆ 80~90%)
+@[6-8](Alternative cases: กรณีที่นานๆจะเกิดขึ้นที หรือเคสขอบ)
+@[10-11](Exception cases: กรณีข้อผิดพลาดที่ยอมรับไม่ได้)
 
 ---
 
