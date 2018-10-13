@@ -191,52 +191,68 @@ Refactoring
 @ol[split-screen-list]
 * Is the existing design the best design possible?
 * If not, refactor the code until it is easier to add new feature
+<div class="fragment">@color[orange](@fa[question-circle] We have a lot of work to do!! Can we skip it?)</div>
+@snapend
+
+---
+
+@title[Enterprise app development]
+
+## Enterprise app development
+
++++?image=assets/img/bg/orange.jpg&position=right&size=50% 100%
+
+@title[App's Concerns]
+
+@snap[west split-screen-heading span-50]
+App's Concerns
+@snapend
+
+@snap[east text-white span-50]
+@ol[split-screen-list](false)
+* Maintainable code
+* Sharable code
+* Scalable 
+@fa[question-circle] None-functional requirements
+@snapend
+
++++?image=assets/img/bg/orange.jpg&position=right&size=50% 100%
+
+@title[None-function requirements]
+
+@snap[west split-screen-heading span-50]
+@size[0.75em](None-function requirements)
+@snapend
+
+@snap[east text-white span-50]
+@ol[split-screen-list](false)
+* Scalable
+* Security
+* Privacy
+* Readability
 @snapend
 
 +++
 
-@title[Clean Code]
+@title[Who writes the tests?]
 
-![img](assets/img/clean_code.jpg)
+@snap[west headline text-white]
+  @size[0.75em](Who writes the tests?)  
+  @color[brown](@fa[heartbeat] The whole TEAM)
+@snapend
 
 ---
 
-@title[Snap]
+@title[Number of Tests]
 
-@snap[north]
-NORTH
-@snapend
+## Number of Tests
 
-@snap[north-west template-note]
-north-west
-@snapend
-
-@snap[north-east template-note]
-north-east
-@snapend
-
-@snap[west]
-WEST
-@snapend
-
-@snap[midpoint]
-MIDPOINT
-@snapend
-
-@snap[east]
-EAST
-@snapend
-
-@snap[south]
-SOUTH
-@snapend
-
-@snap[south-west byline text-white]
-south-west
-@snapend
-
-@snap[south-east template-note]
-south-east
+@snap[midpoint-west text-white]
+@ol[split-screen-list](false)
+- Acceptance tests
+- Functional tests
+- Integration tests
+- Unit tests
 @snapend
 
 ---
