@@ -93,6 +93,56 @@ Exception cases
 
 ---
 
+@title[Test cases to Testable code]
+
+@snap[west headline text-white]
+  @size[0.75em](Turn Test cases)  
+  @color[orange](@fa[angle-double-right] Testable code)
+@snapend
+
++++?image=assets/img/bg/orange.jpg&position=right&size=50% 100%
+
+@title[xUnit]
+
+@snap[west split-screen-heading span-50]
+[xUnit Framework](https://xunit.github.io)  
+![img](assets/img/xunit.png)
+@snapend
+
+@snap[east text-white span-50]
+@ol[split-screen-list](false)
+- Install [.NET Core SDK](https://www.microsoft.com/net/download)
+- Open Command Prompt
+- Type the cmd below
+@size[0.5em](dotnet new xunit -n demoexunit)
+@snapend
+
++++
+
+@title[Fact & Theory]
+
+### Fact & Theory Attributes
+
+```
+[Fact]
+public void TestMethod1()
+{
+    // Do something
+}
+
+[Theory]
+[InlineData(1)]
+[InlineData(9)]
+public void TestMethod2(int input)
+{
+    // Do something
+}
+```
+@[1-2](Fact Attribute: ใช้ทดสอบสิ่งที่เป็นจริงเสมอ และ method นั้นจะรับ parameters ไม่ได้)
+@[7-10](Theory Attribute: ใช้ทดสอบ test cases หลายๆแบบ และ method สามารถมี parameters ได้)
+
+---
+
 @title[Snap]
 
 @snap[north]
