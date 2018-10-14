@@ -196,9 +196,9 @@ Refactoring
 
 ---
 
-@title[Enterprise app development]
+@title[Enterprise App Development]
 
-## Enterprise app development
+## Enterprise App Development
 
 +++?image=assets/img/bg/orange.jpg&position=right&size=50% 100%
 
@@ -218,10 +218,10 @@ App's Concerns
 
 +++?image=assets/img/bg/orange.jpg&position=right&size=50% 100%
 
-@title[None-function requirements]
+@title[None-Functional Requirements]
 
 @snap[west split-screen-heading span-50]
-@size[0.75em](None-function requirements)
+@size[0.75em](None-Functional Requirements)
 @snapend
 
 @snap[east text-white span-50]
@@ -243,75 +243,204 @@ App's Concerns
 
 ---
 
-@title[Number of Tests]
+@title[Types of Software Testing]
 
-## Number of Tests
+### Types of Software Testing
 
-@snap[midpoint-west text-white]
+1. Non-functional testing
+1. Functional testing
+
++++?image=assets/img/bg/orange.jpg&position=right&size=50% 100%
+
+@title[Non-functional testing types]
+
+@snap[west split-screen-heading span-50]
+@size[0.75em](Non-Functional)  
+Testing  
+Types
+@snapend
+
+@snap[east text-white span-50]
 @ol[split-screen-list](false)
-- Acceptance tests
-- Functional tests
-- Integration tests
-- Unit tests
+- Performance Testing
+- Load testing
+- Stress testing
+- Volume testing
+- Security testing
+- Compatibility testing
+- Install testing
+- bla bla bla
+@snapend
+
++++?image=assets/img/bg/orange.jpg&position=right&size=50% 100%
+
+@title[Functional testing types]
+
+@snap[west split-screen-heading span-50]
+Functional  
+Testing  
+Types
+@snapend
+
+@snap[east text-white span-50]
+@ol[split-screen-list](false)
+* Unit testing
+- Integration testing
+- System testing
+- Sanity testing
+- Smoke testing
+- Interface testing
+- Regression testing
+- Acceptance testing
+@snapend
+
++++
+
+@title[Unit Testing]
+
+## Unit Testing
+
+@fa[quote-left] A unit test is a piece of a code that invokes another piece of code (unit) and checks if output of that action is the same as desired output @fa[quote-right]
+
+---
+
+@title[Types of testing]
+
+## Types of testing
+
+1. Manual Testing
+2. Test Automation
+
++++
+
+@title[Manual Testing]
+
+## Manual Testing
+Manual testing is the process of manually testing software for defects. It requires a tester to play the role of an end user whereby they use most of the application's features to ensure correct behavior. To guarantee completeness of testing, the tester often follows a written test plan that leads them through a set of important test cases.
+
++++
+
+@title[Test Automation]
+
+## Test Automation
+Test automation is the use of special software (separate from the software being tested) to control the execution of tests and the comparison of actual outcomes with predicted outcomes.
+
++++
+
+@title[Manual vs Automation]
+
+### Manual vs Automation
+
+||Manual|Automation|
+|--|--|--|
+|Human error|@fa[check]|@fa[exclamation]|
+|@fa[bitcoin]|@fa[angle-double-up]|@fa[angle-double-down]|
+|@fa[bug]|@fa[check]|@fa[exclamation]|
+|Time|@fa[angle-double-down]|@fa[rocket]|
+|CI/CD|@fa[times]|@fa[check]|
+---
+
+@title[Implementing Automation Frameworks in .NET]
+
+@snap[west headline text-white]
+  @size[0.75em](Implementing Automation Frameworks in .NET)
+@snapend
+
++++
+
+@title[Frameworks]
+
+## Frameworks
+1. MSTest
+1. NUnit
+1. xUnit
+
++++
+
+## AAA Pattern
+|||
+|--|--|
+|Arrange|Describes the phase where we initialize everything we need to do in that test|
+|Act|Call parts of the system that is tested|
+|Assert|Check the result|
+
+---
+
+@title[Code Coverage]
+
+## Code Coverage
+1. Defines a degree to which the source code of a system under tests is executed when a particular test suit has been run (Usually expressed in percentage)
+1. If code was not executed during the tests, then it is not tested
+1. Meaning, bug can hide in that part of the code
+1. 100% Not a Guarantee!
+
+---
+
+@title[Mocking Framework]
+
+## Mocking Framework
+
+@size[0.75em](@fa[quote-left] Mocking Framework. Isolate a portion of a system to test by imitating behavior of dependencies. When unit testing, you are often interested in testing a portion of a complete system isolated from dependencies. To test a portion of the system, we can use mock objects to replace the dependencies @fa[quote-right])
+
++++
+
+@title[Moq Framework]
+
+## [Moq](https://github.com/moq/moq4)
+
+```
+var mock = new Mock<ILoveThisFramework>();
+
+mock.Setup(framework => framework.DownloadExists("2.0.0.0"))
+    .Returns(true);
+
+ILoveThisFramework lovable = mock.Object;
+bool download = lovable.DownloadExists("2.0.0.0");
+
+mock.Verify(framework => framework.DownloadExists("2.0.0.0"), Times.AtMostOnce());
+```
+@[1](Create mock object from Moq framework)
+@[3-4](Setup its behavior)
+@[6](Use the Object property on the mock to get a reference to the object)
+@[7](exercise it by calling methods on it)
+@[9](Verify that the given method was indeed called with the expected value at most once)
+
++++
+
+@title[Demo Moq]
+
+@snap[west headline]
+  @size[1.5em](@color[orange](@fa[laptop]) Demo)  
+  Moq Framework
 @snapend
 
 ---
-@title[Quote]
 
-@snap[north-east span-60]
-@quote[We cannot solve our problems with the same thinking we used when we created them.]
-@snapend
+@title[S.O.L.I.D]
 
-@snap[east text-blue span-50]
-@quote[Houston, Tranquillity Base here. The Eagle has landed.](Neil Armstrong)
-@snapend
-
-@snap[south-east span-50]
-@quote[GitPitch Desktop with speaker notes is AMAZING!](Dave T.)
-@snapend
-
-@snap[north-west]
-<br>
-@quote[GitPitch is just WONDERFUL!](Mohammed A.)
-@snapend
-
-@snap[south-west span-20]
-@quote[Just discovered GitPitch. And WOW!](Adrian K.)
+@snap[west headline text-white]
+  @size[0.75em](Object Oriented Design)  
+  @color[orange](S.O.L.I.D) Principles
 @snapend
 
 ---?image=assets/img/bg/orange.jpg&position=right&size=50% 100%
-@title[Split-Screen-1]
 
-@snap[west split-screen-heading text-orange span-50]
-Topics to be covered today
+@title[Summary]
+
+@snap[west split-screen-heading span-50]
+Summary
 @snapend
 
-@snap[east text-white span-45]
+@snap[east text-white span-50]
 @ol[split-screen-list](false)
-- Lorem ipsum dolor sit amet, consectetur elit
-- Ut enim ad minim veniam, quis exercitation
-- Duis aute irure dolor in reprehenderit in voluptate
-@olend
-@ul[split-screen-list](false)
-- Lorem ipsum dolor sit
-- Lorem ipsum dolor sit
-@ulend
-@snapend
+**Pros**
+- Drive your code design
+- Prevent bugs
+- Validation & Verification
+- Cost
 
-+++?image=assets/img/bg/black.jpg&position=left&size=50% 100%
-
-@title[Split-Screen-Image]
-
-@snap[west split-screen-byline text-white]
-Lorem ipsum<br>sit dolor amet, consectetur elit.
-@snapend
-
-@snap[midpoint split-screen-img fragment]
-![DEVELOPER](assets/img/logo/logo.png)
-@snapend
-
-@snap[east split-screen-text text-black]
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+**Cons**
+- Time consumption
 @snapend
 
 ---
