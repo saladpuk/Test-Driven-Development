@@ -13,12 +13,18 @@ namespace ATMConsole.Tests
         {
             var mock = new MockRepository(MockBehavior.Default);
             logMocking = mock.Create<ILogFile>();
-            sut = new ATMController(logMocking.Object);
-            sut.Accounts = new List<Account>
+            var dacMocking = mock.Create<IAccountDAC>();
+            sut = new ATMController(logMocking.Object, dacMocking.Object);
+
+            var accounts = new List<Account>
             {
                 new Account{ Username = "john", Balance = 500 },
                 new Account{ Username = "Doe", Balance = 50 },
             };
+
+            dacMocking
+                .Setup(it => it.GetAllAccounts())
+                .Returns(accounts);
         }
 
         [Theory(DisplayName = "ผู้ใช้กดเงินออกจากตู้ข้อมูลถูกต้อง ระบบทำการหักเงินแล้วนำเงินออกมา")]

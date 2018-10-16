@@ -1,17 +1,16 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 
 namespace ATMConsole
 {
     public class ATMController
     {
         private readonly ILogFile log;
+        private readonly IAccountDAC dac;
 
-        public IList<Account> Accounts { get; set; }
-
-        public ATMController(ILogFile log)
+        public ATMController(ILogFile log, IAccountDAC dac)
         {
             this.log = log;
+            this.dac = dac;
         }
 
         public bool Withdraw(string username, double amount)
@@ -30,6 +29,6 @@ namespace ATMConsole
         }
 
         public Account GetAccountByUsername(string username)
-            => Accounts.FirstOrDefault(it => it.Username == username);
+            => dac.GetAllAccounts().FirstOrDefault(it => it.Username == username);
     }
 }
