@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Moq;
+using System.Collections.Generic;
 using Xunit;
 
 namespace ATMConsole.Tests
@@ -6,10 +7,13 @@ namespace ATMConsole.Tests
     public class UnitTest1
     {
         private ATMController sut;
+        private Mock<ILogFile> logMocking;
 
         public UnitTest1()
         {
-            sut = new ATMController();
+            var mock = new MockRepository(MockBehavior.Default);
+            logMocking = mock.Create<ILogFile>();
+            sut = new ATMController(logMocking.Object);
             sut.Accounts = new List<Account>
             {
                 new Account{ Username = "john", Balance = 500 },
@@ -28,6 +32,12 @@ namespace ATMConsole.Tests
 
             var selectedAccount = sut.GetAccountByUsername(username);
             Assert.Equal(expectedMoney, selectedAccount.Balance);
+
+            logMocking.Verify(log => log.WriteWithdraw
+            (
+                It.Is<string>(it => it == username),
+                It.Is<double>(it => it == withdrawAmount))
+            );
         }
 
         [Theory(DisplayName = "ผู้ใช้กดเงินออกจากตู้ข้อมูลไม่ถูกต้อง ระบบทำการแจ้งเตือน")]
@@ -40,6 +50,8 @@ namespace ATMConsole.Tests
 
             var selectedAccount = sut.GetAccountByUsername(username);
             Assert.Equal(expectedMoney, selectedAccount.Balance);
+
+            logMocking.Verify(log => log.WriteWithdraw(It.IsAny<string>(), It.IsAny<double>()), Times.Never());
         }
 
         [Theory(DisplayName = "ผู้ใช้ที่ไม่มีในระบบทำการถอนเงิน ระบบไม่ยอมให้ถอนเงิน")]
@@ -53,6 +65,8 @@ namespace ATMConsole.Tests
 
             var selectedAccount = sut.GetAccountByUsername(username);
             Assert.Null(selectedAccount);
+
+            logMocking.Verify(log => log.WriteWithdraw(It.IsAny<string>(), It.IsAny<double>()), Times.Never());
         }
 
         [Theory(DisplayName = "ผู้ใช้กดเงินออกจากตู้แต่เงินในบัญชีไม่พอ ระบบทำการแจ้งเตือน")]
@@ -64,6 +78,8 @@ namespace ATMConsole.Tests
 
             var selectedAccount = sut.GetAccountByUsername(username);
             Assert.Equal(expectedMoney, selectedAccount.Balance);
+
+            logMocking.Verify(log => log.WriteWithdraw(It.IsAny<string>(), It.IsAny<double>()), Times.Never());
         }
     }
 }

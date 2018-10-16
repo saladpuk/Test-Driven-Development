@@ -5,7 +5,14 @@ namespace ATMConsole
 {
     public class ATMController
     {
+        private readonly ILogFile log;
+
         public IList<Account> Accounts { get; set; }
+
+        public ATMController(ILogFile log)
+        {
+            this.log = log;
+        }
 
         public bool Withdraw(string username, double amount)
         {
@@ -18,6 +25,7 @@ namespace ATMConsole
             if (!isWithdrawRequestValid) return false;
 
             selectedAccount.Balance -= amount;
+            log.WriteWithdraw(username, amount);
             return isWithdrawRequestValid;
         }
 
